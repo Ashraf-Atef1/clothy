@@ -5,11 +5,11 @@ import Button from "../button/button";
 import "./signIn.scss";
 
 const defaultValues = {
-	displayName: '',
 	email: '',
+	password: '',
 }
 const SignInForm = () => {
-	const [signInValues, setSignInValues] = useState(defaultValues);
+	const [signInValues, setSignInValues] = useState(Object.create(defaultValues));
 	const { email, password } = signInValues;
   
 	const handleSubmit = (event) => {

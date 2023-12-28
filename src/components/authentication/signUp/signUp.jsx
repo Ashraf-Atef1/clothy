@@ -11,7 +11,7 @@ const defaultValues = {
 	confirmPassword: '',
 }
 const SignUpForm = () => {
-const [signUpValues,setSignUpValues] = useState(defaultValues);
+const [signUpValues,setSignUpValues] = useState(Object.create(defaultValues));
 const {displayName, email, password, confirmPassword} = signUpValues;
 const handleSubmit = (event) => {
 	event.preventDefault();

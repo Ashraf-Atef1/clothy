@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth,GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import {doc,setDoc,getDoc,getFirestore} from "firebase/firestore"
 
 const firebaseConfig = {
@@ -53,4 +53,10 @@ export const AddNewUserToDB= async(userData,addData={}) =>{
 	}else{
 		console.log("uesr is exist!");
 	}
+}
+export const OnAuthChanged = async(callback) => {
+	return onAuthStateChanged(auth,callback);
+}
+export const signOutUser = async() =>{
+	signOut(auth);
 }
