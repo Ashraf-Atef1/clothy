@@ -5,6 +5,7 @@ import Authentication from './routes/authentication/authentication';
 import UserContextProvider from './context/userContext';
 import ProductsContextProvider from './context/productsContext';
 import Shop from './routes/shop/shop';
+import Checkout from './routes/checkout/checkout';
 import CartContextProvider from './context/cartContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route index element={<Home/>}/>
       <Route path='auth' element={<Authentication/>}/>
       <Route path='shop' element={<Shop/>}/>
+      <Route path='checkout' element={<Checkout/>}/>
       </Route>
       </Routes>
       </CartContextProvider>
