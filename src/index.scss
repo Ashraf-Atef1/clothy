@@ -1,7 +1,3 @@
-*{
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 20px 40px;
@@ -17,5 +13,9 @@ code {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
 }

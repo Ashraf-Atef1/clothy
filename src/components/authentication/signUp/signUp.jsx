@@ -1,7 +1,7 @@
 import "./signUp.scss";
 import { useState } from "react";
 import FormInput from "../formInput/formInput"
-import Button from "../button/button"
+import Button from "../../button/button"
 import {signUpWithEmailAndPassword} from "../../../config/config"
 
 const defaultValues = {
