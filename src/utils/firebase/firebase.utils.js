@@ -54,7 +54,6 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done");
 };
 
 export const getCategoriesAndDocuments = async () => {
@@ -65,7 +64,6 @@ export const getCategoriesAndDocuments = async () => {
   const categories = querySnapshot.docs.map((docSnapshot) =>
     docSnapshot.data()
   );
-
   return categories;
 };
 

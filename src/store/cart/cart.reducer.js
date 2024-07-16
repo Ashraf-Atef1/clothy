@@ -1,24 +1,22 @@
-import {cartTypes} from './cart.types'
+import { createSlice } from '@reduxjs/toolkit';
 
-const InitState = {
+const initialState = {
     isCartOpen: false,
     cartItems: [],
 }
-
-export const cartReducer = (state = InitState, action = {}) => {
-  const {type, payload} = action;
-  switch(type) {
-    case cartTypes.SET_CART_ITEMS:
-      return {
-        ...state,
-        cartItems: payload,
-      }
-    case cartTypes.SET_IS_CART_OPEN:
-      return {
-        ...state,
-        isCartOpen: payload,
-      }
-    default:
-      return state;
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    SET_CART_ITEMS(state, {payload}) {
+      state.cartItems = payload;
+    },
+    SET_IS_CART_OPEN(state, {payload}) {
+      state.isCartOpen = payload;
+    }
   }
 }
+)
+
+export const {SET_CART_ITEMS, SET_IS_CART_OPEN} = cartSlice.actions;
+export default cartSlice.reducer;

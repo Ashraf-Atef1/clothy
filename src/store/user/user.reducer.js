@@ -1,22 +1,24 @@
 import { UserActionTypes } from "./user.types";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initState = {
+const initialState = {
   currentUser: null,
   isLoading: false,
   error: null,
 };
-export const userReducer = (state = initState, action = {}) => {
-  const { type, payload } = action;
-  switch (type) {
-    case UserActionTypes.SIGN_IN_SUCCESS:
-      return { ...state, currentUser: payload };
-    case UserActionTypes.SIGN_OUT_SUCCESS:
-      return { ...state, currentUser: null };
-    case UserActionTypes.SIGN_OUT_FAILED:
-    case UserActionTypes.SIGN_IN_FAILED:
-    case UserActionTypes.SIGN_UP_FAILED:
-      return { ...state, error: payload };
-    default:
-      return state;
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    SIGN_SUCCESS(state, {payload}) {
+      state.currentUser = payload;
+      state.error = null;
+    },
+    SIGN_FAILED(state, {payload}) {
+      state.currentUser = null;
+      state.error = payload;
+    }
   }
-};
+})
+export const {SIGN_SUCCESS, SIGN_FAILED} =  userSlice.actions
+export default userSlice.reducer;

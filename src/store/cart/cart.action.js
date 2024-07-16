@@ -1,5 +1,5 @@
 import { createAction } from '../../utils/actions/createAction';
-import { cartTypes } from './cart.types';
+import { SET_CART_ITEMS, SET_IS_CART_OPEN } from './cart.reducer';
 
 const addCartItem = (cartItems, productToAdd) => {
     const existingCartItem = cartItems.find(
@@ -33,19 +33,19 @@ const clearCartItem = (cartItems, cartItemToClear) =>
     cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
 export const setIsCartOpenAction = (isOpen) =>
-    createAction(cartTypes.SET_IS_CART_OPEN, isOpen);
+    SET_IS_CART_OPEN(isOpen);
 
 export const addItemToCartAction = (cartItems, productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
-    return createAction( cartTypes.SET_CART_ITEMS , newCartItems);
+    return SET_CART_ITEMS(newCartItems);
 };
 
 export const removeItemToCartAction = (cartItems, cartItemToRemove) => {
     const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-    return createAction( cartTypes.SET_CART_ITEMS, newCartItems);
+    return SET_CART_ITEMS(newCartItems);
 };
 
 export const clearItemFromCartAction = (cartItems, cartItemToClear) => {
     const newCartItems = clearCartItem(cartItems, cartItemToClear);
-    return createAction( cartTypes.SET_CART_ITEMS, newCartItems);
+    return SET_CART_ITEMS(newCartItems);
 };
