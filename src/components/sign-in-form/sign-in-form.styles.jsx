@@ -1,16 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SignInContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 380px;
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	width: 380px;
 
-  h2 {
-    margin: 10px 0;
-  }
+	h2 {
+		margin: 10px 0;
+	}
 `;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+	max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: space-between;
 `;
